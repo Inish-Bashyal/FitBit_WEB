@@ -1,4 +1,4 @@
-import Sidebar from "../../components/sidebar/Sidebar"
+import Sidebar from "../../components/sidebar/sidebar"
 import "./settings.css"
 import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_3872.jpeg"
  

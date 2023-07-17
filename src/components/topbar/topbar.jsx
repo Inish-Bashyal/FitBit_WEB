@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./topbar.css";
-import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_3872.jpeg";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
+
 
 export default function Topbar() {
 

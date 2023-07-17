@@ -1,6 +1,6 @@
-import "./post.css"
 import { Link } from "react-router-dom";
-import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_4300.jpeg"
+import "./post.css";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/post.jpeg";
 
 export default function Post() {
   return (

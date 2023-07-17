@@ -1,5 +1,6 @@
-import "./singlePost.css"
-import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_4300.jpeg"
+import "./singlePost.css";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/post.jpeg";
+
 
 export default function SinglePost() {
   return (

@@ -1,5 +1,5 @@
-import "./sidebar.css"
-import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_4263.jpeg"
+import "./sidebar.css";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
 export default function Sidebar() {
   return (

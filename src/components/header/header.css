@@ -19,9 +19,9 @@
  
  .headerTitleLg{
      position: absolute;
-     top: 20%;
+     top: 10%;
      font-size: 100px;
-     color: white;
+     color: rgb(14, 14, 14);
  }
  
  .headerImg{

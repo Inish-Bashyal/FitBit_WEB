@@ -1,5 +1,6 @@
-import "./write.css"
-import pic from "/Users/inishbashyal/Desktop/REACT/blog_latest/src/assets/images/IMG_3872.jpeg"
+import "./write.css";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png";
+
 
 export default function Write() {
   return (

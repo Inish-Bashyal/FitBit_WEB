@@ -1,15 +1,15 @@
-import Home from "./pages/home/Home"
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
 import TopBar from "./components/topbar/topbar";
-import Single from "./pages/single/single";
-import Write from "./pages/write/write";
-import Setting from "./pages/settings/settings";
+import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route}
- from "react-router-dom";
+import Setting from "./pages/settings/settings";
+import Single from "./pages/single/single";
+import Write from "./pages/write/write";
 
 function App() {
   return (

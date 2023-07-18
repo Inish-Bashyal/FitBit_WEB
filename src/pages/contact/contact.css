@@ -4,6 +4,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    height: 600px;
   }
   
   .socialIcons {
@@ -24,6 +25,7 @@
   .topIcon.fa-twitter,
   .topIcon.fa-linkedin-in {
     font-size: 28px;
+    color: black;
   }
   
   
@@ -74,9 +76,11 @@
   .contactForm button {
     padding: 10px 20px;
     background-color: teal;
+    width: 200px;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 18px;
   }
   

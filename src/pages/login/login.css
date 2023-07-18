@@ -1,35 +1,40 @@
-.login{
+.login {
     height: calc(100vh - 50px);
     justify-content: center;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(255,255,255,0.5),
-    rgba(255,255,255,0.5))
-    , url(/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png);
     background-size: cover;
     align-items: center;
-}
-
-.loginTitle{
+  }
+  
+  .loginTitle {
     font-size: 50px;
-}
-
-.loginForm{
+  }
+  
+  .loginForm {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-}
-.loginForm > label{
+    align-items: center;
+  }
+  
+  .loginForm .formGroup {
     margin: 10px 0;
-}
-
-.loginInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .loginInput {
     padding: 10px;
     background-color: white;
     border: none;
-}
-
-.loginButton{
+    width: 200px;
+    margin-top: 10px;
+  }
+  
+  .loginButton {
     margin-top: 20px;
     cursor: pointer;
     background-color: lightcoral;
@@ -37,9 +42,10 @@
     color: white;
     border-radius: 10px;
     padding: 10px;
-}
-
-.loginRegisterButton{
+  }
+  
+  
+  .loginRegisterButton {
     position: absolute;
     top: 60px;
     right: 20px;
@@ -49,5 +55,5 @@
     padding: 10px;
     color: white;
     border-radius: 10px;
-}
-
+  }
+  

@@ -1,35 +1,54 @@
-.register{
-    height: calc(100vh - 50px);
+.register {
+    padding: 20px; 
+    min-height: calc(100vh - 50px - 2 * 20px); 
     justify-content: center;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(255,255,255,0.5),
-    rgba(255,255,255,0.5))
-    , url(/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png);
     background-size: cover;
     align-items: center;
-}
-
-.registerTitle{
+  }
+  
+  .registerTitle {
     font-size: 50px;
-}
-
-.registerForm{
+  }
+  
+  .registerForm {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-}
-.registerForm > label{
+  }
+  
+  .registerForm .formGroup {
     margin: 10px 0;
-}
-
-.registerInput{
+  }
+  
+  .registerInput {
+    width: 100%;
     padding: 10px;
     background-color: white;
     border: none;
-}
-
-.registerButton{
+  }
+  
+  .imageUpload {
+    display: flex;
+    align-items: center;
+  }
+  
+  .imageUpload i {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .genderOptions {
+    display: flex;
+  }
+  
+  .genderOptions label {
+    margin-right: 10px;
+  }
+  
+  .registerButton {
     margin-top: 20px;
     cursor: pointer;
     background-color: teal;
@@ -37,9 +56,9 @@
     color: white;
     border-radius: 10px;
     padding: 10px;
-}
-
-.registerLoginButton{
+  }
+  
+  .registerLoginButton {
     position: absolute;
     top: 60px;
     right: 20px;
@@ -49,5 +68,16 @@
     padding: 10px;
     color: white;
     border-radius: 10px;
-}
+  }
+  
+  .registerForm .formGroup {
+    margin-bottom: 20px;
+  }
 
+  
+  .imageUpload i {
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 40px; 
+  }
+  

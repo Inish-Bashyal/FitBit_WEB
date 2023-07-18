@@ -8,14 +8,14 @@ export default function Footer() {
         <div className="footerLeft">
           <p>&copy; {new Date().getFullYear()} FitBit. All rights reserved.</p>
         </div>
-        <div className="footerRight">
+        {/* <div className="footerRight">
           <ul className="footerLinks">
             <li><a href="#">Softwarica</a></li>
             <li><a href="#">SchoolWorksPro</a></li>
             <li><a href="#">FitBit</a></li>
             <li><a href="#">Home Fitnes</a></li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

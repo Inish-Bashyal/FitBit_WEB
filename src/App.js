@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import AddWorkout from "./components/addWorkout/addWorkout";
 import TopBar from "./components/topbar/topbar";
+import AboutUs from "./pages/aboutUs/aboutUs";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
@@ -34,6 +35,8 @@ function App() {
             <Route path="/addWorkout" element={<AddWorkout/>}/>
 
             <Route path="/workout" element={<Workout/>}/>
+
+            <Route path="/aboutUs" element={<AboutUs/>}/>
               
         </Routes>
     </Router>

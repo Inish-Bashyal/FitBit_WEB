@@ -1,41 +1,43 @@
 import "./addWorkout.css";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png";
 
-export default function AddWorkout() {
-    return (
-        <div className="formContainer">
-          <form className="form">
-            <label>
-              Title:
-              <input type="text" className="formInput" />
+
+export default function Write() {
+  return (
+    <div className="write">
+        <img className="writeImg" src={pic} alt="" />
+      <form className="writeForm">
+        <div className="writeFormGroup">
+            <label htmlFor="fileInput">
+            <i className="writeIcon fa-solid fa-plus"></i>
             </label>
-            <br />
-            <label>
-              Name of Workout:
-              <input type="text" className="formInput" />
-            </label>
-            <br />
-            <label>
-              Number of Reps:
-              <input type="number" className="formInput" />
-            </label>
-            <br />
-            <label>
-              Day:
-              <input type="text" className="formInput" />
-            </label>
-            <br />
-         <div className="uploadContainer">
-          <input type="file" className="uploadInput" id="uploadInput" />
-          <label htmlFor="uploadInput" className="uploadLabel">
-          <i className="uploadIcon fa-regular fa-upload"></i>
-                      Upload Image
-          </label>
+            <input type="file" id="fileInput" style={{display:"none"}}/>
+            <input type="text" placeholder="Title" className="writeInput" autoFocus={true}/>
         </div>
-            <br />
-            <button className="addWorkoutButton" type="button">
-              Add Workout
-            </button>
-          </form>
+
+        <div className="writeFormGroup">
+            <textarea placeholder="Name of Workout" 
+            type="text" 
+            className="writeInput writeText">
+            </textarea>
         </div>
-      );
-    }
+
+        <div className="writeFormGroup">
+            <textarea placeholder="Number of Reps" 
+            type="text" 
+            className="writeInput writeText">
+            </textarea>
+        </div>
+
+        <div className="writeFormGroup">
+            <textarea placeholder="Day" 
+            type="text" 
+            className="writeInput writeText">
+            </textarea>
+        </div>
+        <button className="writeSubmit">Add Workout</button>
+      </form>
+      <br />
+    </div>
+  )
+}

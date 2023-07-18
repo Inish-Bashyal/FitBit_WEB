@@ -18,11 +18,12 @@
     color: lightcoral;
 }
 
-.settingsDeleteTitle{
+.settingsDeleteTitle {
     color: red;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
-}
+    margin-top: 10px;
+  }
 
 .settingsForm{
     display: flex;
@@ -80,3 +81,54 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+
+.settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .settingsWrapper {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+  }
+  
+  .settingsForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settingsPP > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .settingsForm > label {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .settingsForm > input {
+    color: gray;
+    margin: 10px 0;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .settingsSubmit {
+    width: 150px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  

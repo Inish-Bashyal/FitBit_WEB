@@ -4,15 +4,16 @@ import {
   Routes
 } from "react-router-dom";
 import AddWorkout from "./components/addWorkout/addWorkout";
+import Footer from "./components/footer/footer";
 import TopBar from "./components/topbar/topbar";
 import AboutUs from "./pages/aboutUs/aboutUs";
+import Contact from "./pages/contact/contact";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Setting from "./pages/settings/settings";
 import Single from "./pages/single/single";
 import Workout from "./pages/workout/workout";
-import Write from "./pages/write/write";
 
 function App() {
   return (
@@ -26,7 +27,6 @@ function App() {
 
             <Route path="/login" element={<Login/>} />
 
-            <Route path="/write" element={<Write/>} />
 
             <Route path="/settings" element={<Setting/>} />
 
@@ -37,8 +37,11 @@ function App() {
             <Route path="/workout" element={<Workout/>}/>
 
             <Route path="/aboutUs" element={<AboutUs/>}/>
+
+            <Route path="/contactUs" element={<Contact/>}/>
               
         </Routes>
+        <Footer />
     </Router>
   );
 }

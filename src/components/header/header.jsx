@@ -6,7 +6,7 @@ export default function Header() {
     <div className="header">
       <div className="headerTitles">
         {/* <span className="headerTitleSm">React & Node</span> */}
-        <span className="headerTitleLg">FitBit</span>
+        <span className="headerTitleLg">Welcome To FitBit</span>
       </div>
       <img 
       className="headerImg" 

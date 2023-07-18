@@ -1,4 +1,3 @@
-import Sidebar from "../../components/sidebar/sidebar";
 import "./settings.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
@@ -35,7 +34,6 @@ export default function Setting() {
             <button className="settingsSubmit">Update</button>
           </form>
       </div>
-      <Sidebar />
     </div>
   )
 }

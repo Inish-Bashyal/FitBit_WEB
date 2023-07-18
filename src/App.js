@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Routes
 } from "react-router-dom";
+import AddWorkout from "./components/addWorkout/addWorkout";
 import TopBar from "./components/topbar/topbar";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
@@ -28,6 +29,8 @@ function App() {
             <Route path="/settings" element={<Setting/>} />
 
             <Route path="/post" element={<Single/>}/>
+
+            <Route path="/addWorkout" element={<AddWorkout/>}/>
               
         </Routes>
     </Router>

@@ -131,4 +131,15 @@
     margin-top: 20px;
     cursor: pointer;
   }
+
+  .settingsDelete {
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: red;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 100px;
+  }
   

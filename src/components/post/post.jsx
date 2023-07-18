@@ -17,16 +17,14 @@ export default function Post() {
         </div>
 
         <span className="postTitle">
-          A photo of a tree
+          A photo of a exercise
         </span>
         <hr />
         <span className="postDate">1 hr ago</span>
       </div>
       <p className="postDesc">
-        This photo consists of a tree. It is a bright day with beautiful blue sky. There are car parked too around the trees. 
-        So we can assumate that it is a parking lot. Also there is are small houses which I assume can be laboratories of the hospital. 
-        As there is an ambulance too, so it is probably the hospital.
-      </p>
+        This photo consists of a two people doing exercise. It is a bright day as sun rays can be seen through the window. Exercise Description.
+        </p>
     </div>
     </Link>
   )

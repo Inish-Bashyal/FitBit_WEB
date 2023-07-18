@@ -1,5 +1,5 @@
 import "./header.css";
-import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/header.jpeg";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/logo.png";
 
 export default function Header() {
   return (

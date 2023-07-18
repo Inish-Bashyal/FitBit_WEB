@@ -1,8 +1,4 @@
-.addWorkout{
-    display: flex;
-padding: 30,30,30,30;
-background-color: white;
-}
+
 .formContainer {
     display: flex;
     justify-content: center;
@@ -23,7 +19,7 @@ background-color: white;
     width: 400px;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 4px;
   }
   
   .addWorkoutButton {
@@ -58,9 +54,7 @@ background-color: white;
   .uploadIcon {
     margin-right: 8px;
   }
-  body {
-    background-color: rgb(60, 60, 60);
-  }
+ 
   label{
-    color: white;
+    color: black;
   }

@@ -31,7 +31,7 @@ export default function Topbar() {
               <Link className="link" to="/">Home</Link>
             </li>
             <li className="topListItem">
-            <Link className="link" to="/addWorkout">Workout Plans</Link>
+            <Link className="link" to="/workout">Workout Plans</Link>
             </li>
             <li className="topListItem">
             <Link className="link" to="/">Routines</Link>

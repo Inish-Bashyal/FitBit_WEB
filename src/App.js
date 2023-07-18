@@ -10,6 +10,7 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Setting from "./pages/settings/settings";
 import Single from "./pages/single/single";
+import Workout from "./pages/workout/workout";
 import Write from "./pages/write/write";
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
             <Route path="/post" element={<Single/>}/>
 
             <Route path="/addWorkout" element={<AddWorkout/>}/>
+
+            <Route path="/workout" element={<Workout/>}/>
               
         </Routes>
     </Router>

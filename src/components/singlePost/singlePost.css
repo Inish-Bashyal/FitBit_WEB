@@ -59,3 +59,24 @@
     font-size: 30px;
     font-weight: 600;
 }
+.workoutFollow{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 100px; 
+    margin-left: 400px; 
+}
+.back{
+    background-color: gold;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 100px; 
+}

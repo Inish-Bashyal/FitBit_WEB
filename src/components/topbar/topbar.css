@@ -89,11 +89,6 @@
     text-decoration: none;
   }
 
-  a[tabindex]:focus {
-    color:blue;
-    outline: none;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -119,4 +114,16 @@
 
 .dropdown:hover .dropdownContent {
   display: block;
+}
+
+.topListItem a:active {
+  color: grey;
+}
+
+.topListItem a:focus {
+  color: grey;
+}
+
+.topListItem.active {
+  color: grey;
 }

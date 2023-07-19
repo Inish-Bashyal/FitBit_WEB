@@ -12,8 +12,7 @@ export default function Post() {
       />
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Travel</span>
-          <span className="postCat">Life</span>
+          <span className="postCat">Author</span>
         </div>
 
         <span className="postTitle">

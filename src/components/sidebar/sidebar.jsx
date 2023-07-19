@@ -1,25 +1,26 @@
 import "./sidebar.css";
-import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
+import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/why.jpeg";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">About Me</span>
+        <span className="sidebarTitle">Why FitBit</span>
         <img 
         src={pic}
         alt=""
         />
         <p>
-            Hello, My name is Inish Bashyal. I am currently studying IT in Softwarica College of IT and E-Commerce. I live in Kalopul, Kathmandu. But my permanent adress is Butwal, Rupandehi.
-        </p>
+- Set personalized goals and receive real-time progress updates.<br />
+- Join challenges, compete with friends, and stay motivated.<br />
+- Sync seamlessly with your favorite devices and apps.   <br />     </p>
         </div>
 
         <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-            <li className="sidebarListItem">Life</li>
-            <li className="sidebarListItem">Music</li>
+            <li className="sidebarListItem">Fitness</li>
+            <li className="sidebarListItem">Health</li>
             <li className="sidebarListItem">Style</li>
             <li className="sidebarListItem">Sport</li>
             <li className="sidebarListItem">Tech</li>

@@ -14,18 +14,23 @@ import Register from "./pages/register/register";
 import Setting from "./pages/settings/settings";
 import Single from "./pages/single/single";
 import Workout from "./pages/workout/workout";
+import { RequireAuth } from './utils/RequireAuth';
+import { AuthProvider } from './utils/authContext';
+
 
 function App() {
   return (
     <Router>
+            <AuthProvider>
+
         <TopBar/>
 
         <Routes>
-            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/dashboard" element={<RequireAuth><Home/></RequireAuth>} />
 
             <Route path="/register" element={<Register/>} />
 
-            <Route path="/login" element={<Login/>} />
+            <Route path="/" element={<Login/>} />
 
 
             <Route path="/settings" element={<Setting/>} />
@@ -42,6 +47,8 @@ function App() {
               
         </Routes>
         <Footer />
+        </AuthProvider>
+
     </Router>
   );
 }

@@ -29,7 +29,7 @@ export default function Topbar() {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" to="/dashboard">
               Home
             </Link>
           </li>
@@ -39,7 +39,7 @@ export default function Topbar() {
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" to="/dashboard">
               Routines
             </Link>
           </li>
@@ -71,7 +71,7 @@ export default function Topbar() {
           {dropdownOpen && (
             <div className="dropdownContent">
               <Link to="/settings">Update Account</Link>
-              <Link to="/login">Logout</Link>
+              <Link to="/">Logout</Link>
             </div>
           )}
         </div>

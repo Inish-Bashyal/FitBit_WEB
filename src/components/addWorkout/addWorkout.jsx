@@ -4,18 +4,33 @@ import { useNavigate } from 'react-router-dom';
 import "./addWorkout.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png";
 
-export default function Write() {
+export default function AddWorkout() {
   const [workoutData, setWorkoutData] = useState({
     title: "",
     nameOfWorkout: "",
     numberOfReps: "",
     day: "",
-    image: null, // Store the selected image file here
+    image: null,
   });
 
-  const [selectedImage, setSelectedImage] = useState(null); // State to store the selected image file
-
+  const [selectedImage, setSelectedImage] = useState(null);
   const navigate = useNavigate();
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("profilePicture", workoutData.image);
+      const response = await axios.post('http://localhost:3001/workouts/uploadImage', formData);
+      setWorkoutData((prevData) => ({
+        ...prevData,
+        image: response.data.data, // Use the filename obtained from the response
+      }));
+      console.log("Image uploaded successfully:", response.data.data);
+    } catch (error) {
+      console.error("Error uploading image:", error.response.data);
+    }
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -29,27 +44,16 @@ export default function Write() {
       // Get the bearer token from local storage
       const token = window.localStorage.getItem('token');
 
-      const formData = new FormData();
-      formData.append("title", workoutData.title);
-      formData.append("nameOfWorkout", workoutData.nameOfWorkout);
-      formData.append("numberOfReps", workoutData.numberOfReps);
-      formData.append("day", workoutData.day);
-      formData.append("image", workoutData.image); // Append the image file to the formData
-
-      // Send a POST request to the API with the formData and the bearer token in the headers
-      const response = await axios.post('http://localhost:3001/workouts/addWorkout', formData, {
+      // Make the POST request to add the workout
+      const response = await axios.post('http://localhost:3001/workouts/addWorkout', workoutData, {
         headers: {
-          'Content-Type': 'multipart/form-data', // Set the appropriate content type
-          'Authorization': `Bearer ${token}`, // Include the bearer token in the Authorization header
+          'Authorization': 'Bearer ' + token,
         },
       });
-      console.log(response.data); // Log the response from the API
-      // Optionally, you can show a success message to the user here
-      // Redirect to the dashboard or other appropriate page after adding the workout
+      console.log(response.data);
       navigate('/dashboard');
     } catch (error) {
       console.error("Error adding workout:", error.response.data);
-      // Optionally, you can show an error message to the user here
     }
   };
 
@@ -72,7 +76,7 @@ export default function Write() {
 
   return (
     <div className="write">
-      <img className="writeImg" src={selectedImage || pic} alt="" /> {/* Use the selected image if available, else use the default image */}
+      <img className="writeImg" src={selectedImage || pic} alt="" />
       <form className="writeForm" onSubmit={handleFormSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
@@ -81,13 +85,18 @@ export default function Write() {
           <input
             type="file"
             id="fileInput"
+            name="image"
             style={{ display: "none" }}
             onChange={handleImageChange}
           />
+          <button onClick={handleImageUpload}>Upload Image</button>
+        </div>
+
+        <div className="writeFormGroup">
           <input
-            type="text"
             placeholder="Title"
             name="title"
+            type="text"
             className="writeInput"
             autoFocus={true}
             value={workoutData.title}
@@ -96,7 +105,7 @@ export default function Write() {
         </div>
 
         <div className="writeFormGroup">
-          <textarea
+          <input
             placeholder="Name of Workout"
             name="nameOfWorkout"
             type="text"
@@ -107,7 +116,7 @@ export default function Write() {
         </div>
 
         <div className="writeFormGroup">
-          <textarea
+          <input
             placeholder="Number of Reps"
             name="numberOfReps"
             type="text"
@@ -118,7 +127,7 @@ export default function Write() {
         </div>
 
         <div className="writeFormGroup">
-          <textarea
+          <input
             placeholder="Day"
             name="day"
             type="text"
@@ -128,7 +137,7 @@ export default function Write() {
           />
         </div>
 
-        <button className="writeSubmit" type="submit" onClick={handleFormSubmit}>
+        <button className="writeSubmit" type="submit">
           Add Workout
         </button>
       </form>

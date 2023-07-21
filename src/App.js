@@ -33,13 +33,13 @@ function App() {
             <Route path="/" element={<Login/>} />
 
 
-            <Route path="/settings" element={<Setting/>} />
+            <Route path="/settings" element={<RequireAuth><Setting/></RequireAuth>} />
 
-            <Route path="/post" element={<Single/>}/>
+            <Route path="/post" element={<RequireAuth><Single/></RequireAuth>}/>
 
-            <Route path="/addWorkout" element={<AddWorkout/>}/>
+            <Route path="/addWorkout" element={<RequireAuth><AddWorkout/></RequireAuth>}/>
 
-            <Route path="/workout" element={<Workout/>}/>
+            <Route path="/workout" element={<RequireAuth><Workout/></RequireAuth>}/>
 
             <Route path="/aboutUs" element={<AboutUs/>}/>
 

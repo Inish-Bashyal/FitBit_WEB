@@ -53,11 +53,6 @@ export default function Topbar() {
               Contact Us
             </Link>
           </li>
-          {/* <li className="topListItem">
-            <Link to="/login" className="link">
-              LOGOUT
-            </Link>
-          </li> */}
         </ul>
       </div>
       <div className="topRight">

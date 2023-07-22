@@ -1,15 +1,70 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import "./settings.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
 export default function Setting() {
+  const [user, setUser] = useState(null);
+  const [ setUsername] = useState('');
+  const [ setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  useEffect(() => {
+    // Fetching user details from the backend using the getMe API endpoint
+    const fetchUserDetails = async () => {
+      try {
+        // Get the bearer token from local storage
+        const token = localStorage.getItem('token');
+
+                // Decoding the JWT token to get the user ID
+                const decodedToken = parseJwt(token);
+                const userId = decodedToken ? decodedToken.id : null;
+        
+                if (!userId) {
+                  // Handling the case where the token is invalid or missing user ID
+                  console.error('Invalid token or missing user ID');
+                  return;
+                }
+
+        // Set the request headers with the bearer token
+        const headers = {
+          'Authorization': `Bearer ${token}`,
+        };
+
+        // Make the API call with the headers
+        const response = await axios.get('http://localhost:3001/users/getMe/'+userId, { headers });
+
+        // Assuming the response contains the user details, update the state
+        setUser(response.data.user);
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    };
+      // Function to decode the JWT token
+  const parseJwt = (token) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
+
+
+    fetchUserDetails();
+  }, []);
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
         <form className="settingsForm">
           <label>Profile Picture</label>
           <div className="settingsPP">
-            <img src={pic} alt="" />
+            {user && user.image ? (
+              <img src={'http://localhost:3001/uploads/'+user.image} alt="" />
+            ) : (
+              <img src={pic} alt="" />
+            )}
             <label htmlFor="fileInput">
               <i className="settingsPPIcon fa-regular fa-user"></i>
             </label>
@@ -17,13 +72,15 @@ export default function Setting() {
           </div>
 
           <label>Username</label>
-          <input type="text" placeholder="Username" />
+          {user && <input type="text" value={user.username}   placeholder="Username"
+  onChange={(e) => setUsername(e.target.value)} />}
 
           <label>Email</label>
-          <input type="text" placeholder="email@gmail.com" />
+          {user && <input type="text" value={user.email} placeholder="email@gmail.com" 
+  onChange={(e) => setEmail(e.target.value)} />}
 
           <label>Password</label>
-          <input type="password" />
+          <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
           <div className="buttonContainer">
             <button className="settingsSubmit">Update</button>
             <button className="settingsDelete">Delete Account</button>

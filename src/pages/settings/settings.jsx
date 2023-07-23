@@ -6,7 +6,7 @@ import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/as
 export default function Setting() {
   const [user, setUser] = useState(null);
   const [ setUsername] = useState('');
-  const [ setEmail] = useState('');
+  const [ setEmail, setFirstName, setLastName, setGender, setAge] = useState('');
   const [password, setPassword] = useState('');
 
 
@@ -29,7 +29,7 @@ export default function Setting() {
 
         // Set the request headers with the bearer token
         const headers = {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': 'Bearer '+token,
         };
 
         // Make the API call with the headers
@@ -61,7 +61,7 @@ export default function Setting() {
           <label>Profile Picture</label>
           <div className="settingsPP">
             {user && user.image ? (
-              <img src={'http://localhost:3001/uploads/'+user.image} alt="" />
+              <img crossorigin="anonymous" src={'http://localhost:3001/uploads/'+user.image} alt="" />
             ) : (
               <img src={pic} alt="" />
             )}
@@ -78,6 +78,24 @@ export default function Setting() {
           <label>Email</label>
           {user && <input type="text" value={user.email} placeholder="email@gmail.com" 
   onChange={(e) => setEmail(e.target.value)} />}
+
+
+<label>First Name</label>
+          {user && <input type="text" value={user.firstname} placeholder="First Name" 
+  onChange={(e) => setFirstName(e.target.value)} />}
+
+<label>Last Name</label>
+          {user && <input type="text" value={user.lastname} placeholder="Last Name" 
+  onChange={(e) => setLastName(e.target.value)} />}
+
+<label>Gender</label>
+          {user && <input type="text" value={user.gender} placeholder="Gender" 
+  onChange={(e) => setGender(e.target.value)} />}
+
+<label>Age</label>
+          {user && <input type="text" value={user.age} placeholder="Age" 
+  onChange={(e) => setAge(e.target.value)} />}
+
 
           <label>Password</label>
           <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>

@@ -22,8 +22,6 @@ export default function SinglePost() {
             <span className="singlePostDate">1 hour ago</span>
         </div>
         <p className="singlePostDesc">
-        This photo consists of a two people doing exercise. It is a bright day as sun rays can be seen through the window. Exercise Description.
-        <br />
         Title
         <br />
         Name of Workout

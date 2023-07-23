@@ -1,8 +1,11 @@
 import React from 'react';
+import Topbar from '../../components/topbar/topbar';
 import "./contact.css";
 
 export default function Contact() {
   return (
+    <>
+    <Topbar />
     <div className="contactUsContainer">
       <div className="contactForm">
         <h1>Contact Us</h1>
@@ -25,7 +28,7 @@ export default function Contact() {
           <a href="https://www.instagram.com/inishbashyal/">
             <i className="topIcon fa-brands fa-instagram"></i>
           </a>
-          <a href="https://twitter.com/Inish91939581">  
+          <a href="https://twitter.com/Inish91939581">
             <i className="topIcon fa-brands fa-twitter"></i>
           </a>
           <a href="https://www.linkedin.com/in/inish-bashyal-3736801b5/">
@@ -33,6 +36,6 @@ export default function Contact() {
           </a>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }

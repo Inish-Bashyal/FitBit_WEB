@@ -13,7 +13,7 @@
     height: 40px;
  
 }
-.workoutContainer {
+.workoutContainers {
   display: flex;
   justify-content: space-between;
   flex-wrap:wrap;
@@ -45,13 +45,5 @@
   
   .searchBar input[type="text"]::placeholder {
     color: #888;
-  }
-
-  .post {
-    flex-basis: calc(50% - 10px); 
-    margin-bottom: 20px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
   }
 

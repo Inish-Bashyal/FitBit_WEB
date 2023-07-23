@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Topbar from '../../components/topbar/topbar';
 import "./settings.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
@@ -55,13 +56,13 @@ export default function Setting() {
   }, []);
 
   return (
-    <div className="settings">
+    <><Topbar /><div className="settings">
       <div className="settingsWrapper">
         <form className="settingsForm">
           <label>Profile Picture</label>
           <div className="settingsPP">
             {user && user.image ? (
-              <img crossorigin="anonymous" src={'http://localhost:3001/uploads/'+user.image} alt="" />
+              <img crossorigin="anonymous" src={'http://localhost:3001/uploads/' + user.image} alt="" />
             ) : (
               <img src={pic} alt="" />
             )}
@@ -72,39 +73,39 @@ export default function Setting() {
           </div>
 
           <label>Username</label>
-          {user && <input type="text" value={user.username}   placeholder="Username"
-  onChange={(e) => setUsername(e.target.value)} />}
+          {user && <input type="text" value={user.username} placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)} />}
 
           <label>Email</label>
-          {user && <input type="text" value={user.email} placeholder="email@gmail.com" 
-  onChange={(e) => setEmail(e.target.value)} />}
+          {user && <input type="text" value={user.email} placeholder="email@gmail.com"
+            onChange={(e) => setEmail(e.target.value)} />}
 
 
-<label>First Name</label>
-          {user && <input type="text" value={user.firstname} placeholder="First Name" 
-  onChange={(e) => setFirstName(e.target.value)} />}
+          <label>First Name</label>
+          {user && <input type="text" value={user.firstname} placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)} />}
 
-<label>Last Name</label>
-          {user && <input type="text" value={user.lastname} placeholder="Last Name" 
-  onChange={(e) => setLastName(e.target.value)} />}
+          <label>Last Name</label>
+          {user && <input type="text" value={user.lastname} placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)} />}
 
-<label>Gender</label>
-          {user && <input type="text" value={user.gender} placeholder="Gender" 
-  onChange={(e) => setGender(e.target.value)} />}
+          <label>Gender</label>
+          {user && <input type="text" value={user.gender} placeholder="Gender"
+            onChange={(e) => setGender(e.target.value)} />}
 
-<label>Age</label>
-          {user && <input type="text" value={user.age} placeholder="Age" 
-  onChange={(e) => setAge(e.target.value)} />}
+          <label>Age</label>
+          {user && <input type="text" value={user.age} placeholder="Age"
+            onChange={(e) => setAge(e.target.value)} />}
 
 
           <label>Password</label>
-          <input type="password"  value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <div className="buttonContainer">
             <button className="settingsSubmit">Update</button>
             <button className="settingsDelete">Delete Account</button>
           </div>
         </form>
       </div>
-    </div>
+    </div></>
   )
 }

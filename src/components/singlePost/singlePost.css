@@ -1,4 +1,5 @@
 .singlePost{
+    align-items: center;
     flex: 9;
 }
 
@@ -54,11 +55,6 @@
     line-height: 25px;
 }
 
-.singlePostDesc::first-letter{
-    margin-left: 20px;
-    font-size: 30px;
-    font-weight: 600;
-}
 .workoutFollow{
     background-color: green;
     color: white;
@@ -71,7 +67,7 @@
     margin-left: 400px; 
 }
 .back{
-    background-color: gold;
+    background-color: orange;
     color: white;
     padding: 10px 20px;
     font-size: 16px;

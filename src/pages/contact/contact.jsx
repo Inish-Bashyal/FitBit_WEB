@@ -1,11 +1,10 @@
 import React from 'react';
-import Topbar from '../../components/topbar/topbar';
 import "./contact.css";
 
 export default function Contact() {
   return (
     <>
-    <Topbar />
+
     <div className="contactUsContainer">
       <div className="contactForm">
         <h1>Contact Us</h1>

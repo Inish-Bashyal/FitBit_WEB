@@ -1,12 +1,11 @@
 import React from 'react';
-import Topbar from '../../components/topbar/topbar';
 import "./aboutUs.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/logo.png";
 
 export default function AboutUs() {
   return (
     <>
-    <Topbar />
+
     <div className='aboutUsContainer'>
           <div className='topSection'>
               About FitBit

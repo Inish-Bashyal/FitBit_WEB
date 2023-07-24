@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Topbar from '../../components/topbar/topbar';
 import "./settings.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
@@ -56,7 +55,8 @@ export default function Setting() {
   }, []);
 
   return (
-    <><Topbar /><div className="settings">
+    <>
+    <div className="settings">
       <div className="settingsWrapper">
         <form className="settingsForm">
           <label>Profile Picture</label>

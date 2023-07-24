@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./topbar.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/sidebar.jpeg";
 
@@ -74,6 +74,19 @@ export default function Topbar() {
 
   console.log("userDataLoaded:", userDataLoaded);
   console.log("user:", user);
+
+
+  const location = useLocation(); // Get the current route location
+
+  // Check if the current route matches the paths of Login and Register pages
+  const isLoginPage = location.pathname === "/";
+  const isRegisterPage = location.pathname === "/register";
+
+  // Conditionally render the TopBar based on the route
+  if (isLoginPage || isRegisterPage) {
+    return null;
+
+  }
 
   return (
     <div className="top">

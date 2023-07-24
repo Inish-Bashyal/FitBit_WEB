@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import AddWorkout from "./components/addWorkout/addWorkout";
 import Footer from "./components/footer/footer";
+import PostDetails from "./components/singlePost/singlePost";
+import TopBar from "./components/topbar/topbar";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import Contact from "./pages/contact/contact";
 import Home from "./pages/home/home";
@@ -22,7 +24,7 @@ function App() {
     <Router>
             <AuthProvider>
 
-        {/* <TopBar/> */}
+        <TopBar/>
 
         <Routes>
             <Route exact path="/dashboard" element={<RequireAuth><Home/></RequireAuth>} />
@@ -34,7 +36,10 @@ function App() {
 
             <Route path="/settings" element={<RequireAuth><Setting/></RequireAuth>} />
 
-            <Route path="/post" element={<RequireAuth><Single/></RequireAuth>}/>
+            <Route path="/post/:postId" element={<RequireAuth><Single/></RequireAuth>}/>
+
+            <Route path="/postDetails" element={<PostDetails />} />
+
 
             <Route path="/addWorkout" element={<RequireAuth><AddWorkout/></RequireAuth>}/>
 

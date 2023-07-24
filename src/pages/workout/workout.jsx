@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Posts from '../../components/posts/posts';
-import Topbar from '../../components/topbar/topbar';
 import './workout.css';
 
 export default function Workout() {
@@ -15,7 +14,6 @@ export default function Workout() {
 
   return (
     <>
-    <Topbar />
     <div className="workoutContainers">
       <div className="searchBar">
         <input

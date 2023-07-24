@@ -117,7 +117,7 @@ export default function Topbar() {
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/dashboard">
+            <Link className="link" to="/routines">
               Routines
             </Link>
           </li>

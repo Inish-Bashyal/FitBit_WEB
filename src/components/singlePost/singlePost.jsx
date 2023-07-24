@@ -52,6 +52,47 @@ export default function PostDetails() {
   if (!post) {
     return <div>Post not found</div>;
   }
+
+  const handleFollow = async () => {
+    try {
+      const token = localStorage.getItem('token');
+
+      const headers = {
+        'Authorization': `Bearer ${token}`,
+      };
+
+              // Decoding the JWT token to get the user ID
+              const decodedToken = parseJwt(token);
+              const userId = decodedToken ? decodedToken.id : null;
+      
+
+      // Construct the request payload
+      const payload = {
+        workout: postId, 
+        user: userId
+        // Add other properties if needed
+      };
+
+      // Make the API request to add the routine
+      await axios.post('http://localhost:3001/routines/create', payload, { headers });
+
+      // Handle success or show a notification to the user
+      console.log('Routine added successfully!');
+    } catch (error) {
+      console.error('Error adding routine:', error);
+    }
+  };
+
+      // Function to decode the JWT token
+      const parseJwt = (token) => {
+        try {
+          return JSON.parse(atob(token.split(".")[1]));
+        } catch (e) {
+          return null;
+        }
+      };
+
+
   return (
     <div className='singlePost'>
       <div className="singlePostWrapper">
@@ -79,7 +120,7 @@ export default function PostDetails() {
           Day : {post.day}
         </p>
       </div>
-      <button className="workoutFollow">Follow</button>
+      <button className="workoutFollow" onClick={handleFollow}>Follow</button>
       <button className="back">
        <Link to='/workout' >Get Back</Link> 
         </button>

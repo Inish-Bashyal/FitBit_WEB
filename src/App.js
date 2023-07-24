@@ -12,6 +12,7 @@ import Contact from "./pages/contact/contact";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import Routine from "./pages/routine/routine";
 import Setting from "./pages/settings/settings";
 import Single from "./pages/single/single";
 import Workout from "./pages/workout/workout";
@@ -48,6 +49,8 @@ function App() {
             <Route path="/aboutUs" element={<AboutUs/>}/>
 
             <Route path="/contactUs" element={<Contact/>}/>
+
+            <Route path="/routines" element={<Routine/>}/>
               
         </Routes>
         <Footer />

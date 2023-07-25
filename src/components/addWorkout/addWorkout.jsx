@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import "./addWorkout.css";
 import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png";
 
@@ -51,6 +52,11 @@ export default function AddWorkout() {
         },
       });
       console.log(response.data);
+      toast.success('Workout added successfully!', {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+      });   
       navigate('/dashboard');
     } catch (error) {
       console.error("Error adding workout:", error.response.data);

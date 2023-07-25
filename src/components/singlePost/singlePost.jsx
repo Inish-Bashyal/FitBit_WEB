@@ -1,12 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom'; // Import useParams hook
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import './singlePost.css';
 
 export default function PostDetails() {
   const { postId } = useParams(); // Access the postId using the useParams hook
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     // Function to fetch post data
@@ -76,8 +81,12 @@ export default function PostDetails() {
       // Make the API request to add the routine
       await axios.post('http://localhost:3001/routines/create', payload, { headers });
 
-      // Handle success or show a notification to the user
-      console.log('Routine added successfully!');
+    // Show the green toast message when the follow is successful
+    toast.success('Added to your routine!', {
+      position: 'bottom-right',
+      autoClose: 3000,
+      hideProgressBar: true,
+    });
     } catch (error) {
       console.error('Error adding routine:', error);
     }
@@ -89,6 +98,34 @@ export default function PostDetails() {
           return JSON.parse(atob(token.split(".")[1]));
         } catch (e) {
           return null;
+        }
+      };
+
+
+      const handleDelete = async () => {
+        try {
+          const token = localStorage.getItem('token');
+      
+          const headers = {
+            'Authorization': `Bearer ${token}`,
+          };
+      
+          // Make the API request to delete the workout
+          await axios.delete(`http://localhost:3001/workouts/deleteWorkout/${postId}`, { headers });
+      
+          // Show the red toast message when the workout is deleted
+          toast.error('Workout deleted!', {
+            position: 'bottom-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+          });
+          navigate('/workout');
+
+      
+          // You can redirect the user to another page or take any other action after deletion if needed.
+      
+        } catch (error) {
+          console.error('Error deleting workout:', error);
         }
       };
 
@@ -105,7 +142,7 @@ export default function PostDetails() {
 
           <div className="singlePostEdit">
             <i className="singlePostIcon fa-regular fa-pen-to-square"></i>
-            <i className="singlePostIcon fa-regular fa-trash-can"></i>
+            <i className="singlePostIcon fa-regular fa-trash-can" onClick={handleDelete}></i>
           </div>
         </h1>
         <div className="singlePostInfo">

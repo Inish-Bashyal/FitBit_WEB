@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 import './routine.css';
 
 export default function Routine() {
@@ -39,21 +41,33 @@ export default function Routine() {
     try {
       // Get the bearer token from local storage
       const token = localStorage.getItem('token');
-
+  
       // Set the request headers with the bearer token
       const headers = {
         'Authorization': `Bearer ${token}`,
       };
-
+  
       // Make API request to update routine status to 'Completed'
-      await axios.put(`http://localhost:3001/routines/update/${routineId}`, { routineStatus: 'Completed' }, { headers });
-
-      // Update the routine status in the state
+      await axios.put(`http://localhost:3001/routines/update/${routineId}`, 
+        { routineStatus: 'Completed', completedAt: new Date().toISOString() }, 
+        { headers }
+      );
+  
+      // Update the routine status and completedAt in the state
       setRoutines((prevRoutines) =>
         prevRoutines.map((routine) =>
-          routine._id === routineId ? { ...routine, routineStatus: 'Completed' } : routine
+          routine._id === routineId
+            ? { ...routine, routineStatus: 'Completed', completedAt: new Date().toISOString() }
+            : routine
         )
       );
+  
+      // Display notification for marking routine as complete
+      toast.success('Routine marked as completed!', {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+      });    
     } catch (error) {
       console.error('Error marking routine as complete:', error);
     }
@@ -88,7 +102,11 @@ export default function Routine() {
       setShowModal(false);
 
       // Display notification for routine deletion
-      alert('Routine deleted');
+      toast.error('Routine deleted!', {
+        position: 'bottom-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+      });
     } catch (error) {
       console.error('Error deleting routine:', error);
     }

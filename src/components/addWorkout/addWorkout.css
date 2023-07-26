@@ -36,11 +36,19 @@
 }
 
 .writeInput{
-    font-size: 30px;
-    border: none;
+    margin-left: 20px;
+    font-size: 16px;
+    border:3cap;
     padding: 20px;
-    width: 70vw;
-    height: 20px;
+    border-radius: 20px;
+    height: 10px;
+    margin-bottom: 10px;
+
+}
+
+.writeFormGroup > label{
+    font-size: 26px;
+    margin-bottom: 10px;
 
 }
 

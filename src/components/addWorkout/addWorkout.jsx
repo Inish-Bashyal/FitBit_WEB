@@ -1,65 +1,104 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import "./addWorkout.css";
-import pic from "/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png";
+import './addWorkout.css';
+import pic from '/Users/inishbashyal/Documents/FitBit_web/frontend/fitbit/src/assets/images/single.png';
 
-export default function AddWorkout() {
+const AddWorkout = () => {
   const [workoutData, setWorkoutData] = useState({
-    title: "",
-    nameOfWorkout: "",
-    numberOfReps: "",
-    day: "",
+    _id: '',
+    title: '',
+    nameOfWorkout: '',
+    numberOfReps: '',
+    day: '',
     image: null,
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state) {
+      const { _id, title, nameOfWorkout, numberOfReps, day, image } = location.state;
+      setWorkoutData({
+        _id,
+        title,
+        nameOfWorkout,
+        numberOfReps,
+        day,
+        image,
+      });
+      setSelectedImage(`http://localhost:3001/uploads/${image}`);
+    }
+  }, [location.state]);
 
   const handleImageUpload = async (e) => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("profilePicture", workoutData.image);
+      formData.append('profilePicture', workoutData.image);
       const response = await axios.post('http://localhost:3001/workouts/uploadImage', formData);
       setWorkoutData((prevData) => ({
         ...prevData,
-        image: response.data.data, // Use the filename obtained from the response
+        image: response.data.data,
       }));
-      console.log("Image uploaded successfully:", response.data.data);
+      console.log('Image uploaded successfully:', response.data.data);
     } catch (error) {
-      console.error("Error uploading image:", error.response.data);
+      console.error('Error uploading image:', error.response.data);
     }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Check if all required fields are filled
-      if (!workoutData.title || !workoutData.nameOfWorkout || !workoutData.numberOfReps || !workoutData.day || !workoutData.image) {
-        alert("Please fill in all the required fields.");
+      if (
+        !workoutData.title ||
+        !workoutData.nameOfWorkout ||
+        !workoutData.numberOfReps ||
+        !workoutData.day ||
+        !workoutData.image
+      ) {
+        alert('Please fill in all the required fields.');
         return;
       }
 
-      // Get the bearer token from local storage
       const token = window.localStorage.getItem('token');
 
-      // Make the POST request to add the workout
-      const response = await axios.post('http://localhost:3001/workouts/addWorkout', workoutData, {
-        headers: {
-          'Authorization': 'Bearer ' + token,
-        },
-      });
-      console.log(response.data);
-      toast.success('Workout added successfully!', {
-        position: 'bottom-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-      });   
+      if (workoutData._id) {
+        const response = await axios.put(
+          `http://localhost:3001/workouts/updateWorkout/${workoutData._id}`,
+          workoutData,
+          {
+            headers: {
+              Authorization: 'Bearer ' + token,
+            },
+          }
+        );
+        console.log('Workout updated successfully:', response.data);
+        toast.success('Workout updated successfully!', {
+          position: 'bottom-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+        });
+      } else {
+        const response = await axios.post('http://localhost:3001/workouts/addWorkout', workoutData, {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        });
+        console.log('Workout added successfully:', response.data);
+        toast.success('Workout added successfully!', {
+          position: 'bottom-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+        });
+      }
+
       navigate('/dashboard');
     } catch (error) {
-      console.error("Error adding workout:", error.response.data);
+      console.error('Error adding/updating workout:', error.response.data);
     }
   };
 
@@ -77,12 +116,12 @@ export default function AddWorkout() {
       ...prevData,
       image: imageFile,
     }));
-    setSelectedImage(URL.createObjectURL(imageFile)); // Update the selected image in state
+    setSelectedImage(URL.createObjectURL(imageFile));
   };
 
   return (
     <div className="write">
-      <img className="writeImg" src={selectedImage || pic} alt="" />
+      <img crossorigin="anonymous" className="writeImg" src={selectedImage || pic} alt="" />
       <form className="writeForm" onSubmit={handleFormSubmit}>
         <div className="writeFormGroup">
           <label htmlFor="fileInput">
@@ -92,13 +131,14 @@ export default function AddWorkout() {
             type="file"
             id="fileInput"
             name="image"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={handleImageChange}
           />
           <button onClick={handleImageUpload}>Upload Image</button>
         </div>
 
         <div className="writeFormGroup">
+          <label>Title</label>
           <input
             placeholder="Title"
             name="title"
@@ -111,6 +151,7 @@ export default function AddWorkout() {
         </div>
 
         <div className="writeFormGroup">
+          <label>Name of Workout</label>
           <input
             placeholder="Name of Workout"
             name="nameOfWorkout"
@@ -122,6 +163,7 @@ export default function AddWorkout() {
         </div>
 
         <div className="writeFormGroup">
+          <label>Number of Reps</label>
           <input
             placeholder="Number of Reps"
             name="numberOfReps"
@@ -133,6 +175,7 @@ export default function AddWorkout() {
         </div>
 
         <div className="writeFormGroup">
+          <label>Day</label>
           <input
             placeholder="Day"
             name="day"
@@ -144,10 +187,12 @@ export default function AddWorkout() {
         </div>
 
         <button className="writeSubmit" type="submit">
-          Add Workout
+          {location.state ? 'Update Workout' : 'Add Workout'}
         </button>
       </form>
       <br />
     </div>
   );
-}
+};
+
+export default AddWorkout;

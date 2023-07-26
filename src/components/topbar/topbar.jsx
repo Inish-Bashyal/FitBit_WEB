@@ -135,7 +135,7 @@ export default function Topbar() {
       </div>
       <div className="topRight">
         <div className="dropdown">
-          {userDataLoaded && user ? ( // Show topImg only when user data is loaded and the user is logged in
+          {userDataLoaded && user ? ( 
             user.image ? (
               <img
                 className="topImg"
